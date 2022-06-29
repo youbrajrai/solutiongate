@@ -141,6 +141,10 @@ class ProductController extends Controller
         $productDetails = productDetails::where('products_id',$id)->get();
         // $titles = json_encode($productDetails[0]['title']); //array to json string conversion
         // $details = json_encode($productDetails[0]['details']); //array to json string conversion
+        // $datas = array(
+        //     'title' => $titles,
+        //     'details' => $details
+        // );
         return view('products.extraDetails',compact('id','productDetails'));
     } 
     public function storeExtraDetails(Request $request)
