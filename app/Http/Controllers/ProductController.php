@@ -63,9 +63,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Request $request,Product $product)
     {
-        //
+        $id = $request->id;
+        $products = Product::where('subcategory_id',$id)->get();
+        return view('products',compact('products'));
     }
 
     /**
@@ -162,5 +164,10 @@ class ProductController extends Controller
             $data
         );
         return redirect()->back()->with('message', 'Product Details saved successfully.');
-    }     
+    } 
+    public function showDetails(Request $request)  {
+        $id = $request->id;
+        $details = productDetails::where('products_id',$id)->get();
+        return view('details',compact('details'));
+    }
 }

@@ -6,7 +6,7 @@
         <div id="cssmenu" class="pull-right">
             <ul class="navbar-right">
                 <li><a href="{{url('/')}}" class="{{ (request()->is('/')) ? 'active' : '' }}">Home</a></li>
-                <li><a href="" class="{{ (request()->is('')) ? 'active' : '' }}">Packages</a></li>
+                <li><a href="{{route('category.show')}}" class="{{ (request()->is('category')) ? 'active' : '' }}">Packages</a></li>
                 <li><a href="{{route('about-us')}}" class="{{ (request()->is('about-us')) ? 'active' : '' }}">About Us</a></li>
                 <li>
                     <a href="#">Services</a>

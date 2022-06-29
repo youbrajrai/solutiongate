@@ -59,9 +59,11 @@ class SubcategoryController extends Controller
      * @param  \App\Models\Subcategory  $subcategory
      * @return \Illuminate\Http\Response
      */
-    public function show(Subcategory $subcategory)
+    public function show(Request $request,Subcategory $subcategory)
     {
-        //
+        $id = $request->id;
+        $subcategories = Subcategory::where('category_id',$id)->get();
+        return view('subcategories',compact('subcategories'));
     }
 
     /**

@@ -58,7 +58,8 @@ class CategoriesController extends Controller
      */
     public function show(Categories $categories)
     {
-        //
+        $categories = Categories::latest()->get();
+        return view('package', compact('categories'));
     }
 
     /**

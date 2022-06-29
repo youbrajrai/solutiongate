@@ -39,10 +39,14 @@ Route::get('/admin', [LoginController::class, 'showLoginForm']);
 Route::get('/', HomeController::class)->name('home');
 Route::get('/services/{service}', [ServiceController::class, 'show'])->name('service.show');
 Route::get('/projects/{project}', [ProjectController::class , 'show'])->name('project.show');
+
 Route::get('/heros/{hero}',[HeroController::class,'show'])->name('hero.show');
 Route::resource('/contact', ContactUsController::class)->only('store');
 Route::get('/about-us', [AboutController::class, 'show'])->name('about-us');
-
+Route::get('/packages', [CategoriesController::class , 'show'])->name('category.show');
+Route::get('/packages/{id}/subcategories', [SubcategoryController::class , 'show'])->name('subcategory.show');
+Route::get('packages/{id}/products', [ProductController::class , 'show'])->name('products.show');
+Route::get('packages/{id}/details', [ProductController::class , 'showDetails'])->name('details.show');
 Route::get('/contact-us', function () {
 	return view('contact-us');
 })->name('contact-us');
