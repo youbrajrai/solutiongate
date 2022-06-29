@@ -8,6 +8,8 @@ use App\Models\Categories;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use File;
+use App\Http\Requests\ProductsStoreRequest;
+use App\Http\Requests\ProductdetailsStoreRequest;
 
 class ProductController extends Controller
 {
@@ -39,7 +41,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductsStoreRequest $request)
     {
         $data = array(
             'title' => $request->title,
@@ -92,7 +94,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductsStoreRequest $request, Product $product)
     {
         $id = $request->id;
         $product = Product::find($id);
@@ -149,7 +151,7 @@ class ProductController extends Controller
         // );
         return view('products.extraDetails',compact('id','productDetails'));
     } 
-    public function storeExtraDetails(Request $request)
+    public function storeExtraDetails(ProductdetailsStoreRequest $request)
     {
         $id = $request->id;
         $title = $request->title;

@@ -30,7 +30,7 @@
                                         <option value="{{$category->id}}">{{$category->title}}</option>
                                     @endforeach
                                   </select>
-                                @error('category_id')
+                                @error('category')
                                 <span class="text-danger" role="alert">
                                     <p>{{ $message }}</p>
                                 </span>
@@ -43,7 +43,7 @@
                                 <select class="form-control" name="subcategory" id="subcategory">
                                     <option value="">Subcategory Name</option>
                                   </select>
-                                @error('category_id')
+                                @error('subcategory')
                                 <span class="text-danger" role="alert">
                                     <p>{{ $message }}</p>
                                 </span>

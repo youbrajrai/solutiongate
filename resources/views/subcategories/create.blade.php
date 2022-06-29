@@ -40,6 +40,11 @@
                                 <label>Image</label>
                                 <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
                             </div>
+                            @error('image')
+                            <span class="text-danger" role="alert">
+                                <p>{{ $message }}</p>
+                            </span>
+                            @enderror                             
                         </div>
                     </div>
 

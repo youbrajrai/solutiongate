@@ -6,6 +6,7 @@ use App\Models\Subcategory;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 use File;
+use App\Http\Requests\SubcategoriesStoreRequest;
 
 class SubcategoryController extends Controller
 {
@@ -37,7 +38,7 @@ class SubcategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubcategoriesStoreRequest $request)
     {
         $data = array(
             'title' => $request->title,
@@ -87,7 +88,7 @@ class SubcategoryController extends Controller
      * @param  \App\Models\Subcategory  $subcategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subcategory $subcategory)
+    public function update(SubcategoriesStoreRequest $request, Subcategory $subcategory)
     {
         $id = $request->id;
         $subcategories = Subcategory::find($id);

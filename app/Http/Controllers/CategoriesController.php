@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoriesStoreRequest;
 use File;
 
 class CategoriesController extends Controller
@@ -35,7 +36,7 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriesStoreRequest $request)
     {
         $data = array(
             'title'=> $request->title,
@@ -82,7 +83,7 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Categories $categories)
+    public function update(CategoriesStoreRequest $request,Categories $categories)
     {
         $id = $request->id;
         $categories = Categories::find($categories->id);
