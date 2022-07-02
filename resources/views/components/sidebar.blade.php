@@ -1,6 +1,6 @@
 <div class="sidebar"  style="position: fixed;overflow-y: scroll; width:auto;" data-color="white" data-active-color="danger">
     <div class="logo">
-        <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="#" class="simple-text logo-mini">
             <div class="logo-image-small">
                 <img src="{{asset('images/logo.png')}}" style="margin-top: -22px;">
             </div>
