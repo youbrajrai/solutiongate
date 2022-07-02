@@ -2,8 +2,7 @@
     <div class="logo">
         <a href="https://www.creative-tim.com" class="simple-text logo-mini">
             <div class="logo-image-small">
-                <img src="{{asset('images/logo.png')}}" style="margin-top: -22px;
-}">
+                <img src="{{asset('images/logo.png')}}" style="margin-top: -22px;">
             </div>
             <!-- <p>CT</p> -->
         </a>
