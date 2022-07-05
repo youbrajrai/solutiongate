@@ -1,6 +1,6 @@
 <x-show>
     @section('header' , 'Details')
-    <section class="packages">
+    <section class="single-page">
         <div class="container">
             <div class="row">               
                 @for($i=0;$i<count($details[0]['details']);$i++)
@@ -19,4 +19,5 @@
             </div>
         </div>
     </section>
+    
 </x-show>

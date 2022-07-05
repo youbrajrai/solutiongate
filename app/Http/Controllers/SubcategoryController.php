@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subcategory;
 use App\Models\Categories;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use File;
 use App\Http\Requests\SubcategoriesStoreRequest;
@@ -64,7 +65,8 @@ class SubcategoryController extends Controller
     {
         $id = $request->id;
         $subcategories = Subcategory::where('category_id',$id)->get();
-        return view('subcategories',compact('subcategories'));
+        $products = Product::where('category_id',$id)->get();
+        return view('subcategories',compact('subcategories','products'));
     }
 
     /**
