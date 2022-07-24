@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\ProductDetails;
+use App\Models\productDetails;
 use App\Models\Categories;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
@@ -142,14 +142,14 @@ class ProductController extends Controller
     public function extraDetails(Request $request,Product $product)
     {
         $id = $request->id;
-        $productDetails = productDetails::where('products_id',$id)->get();
+        $products = Product::where('id',$id)->with('ProductDetails')->first();
         // $titles = json_encode($productDetails[0]['title']); //array to json string conversion
         // $details = json_encode($productDetails[0]['details']); //array to json string conversion
         // $datas = array(
         //     'title' => $titles,
         //     'details' => $details
         // );
-        return view('products.extraDetails',compact('id','productDetails'));
+        return view('products.extraDetails',compact('id','products'));
     } 
     public function storeExtraDetails(ProductdetailsStoreRequest $request)
     {
@@ -161,7 +161,7 @@ class ProductController extends Controller
             'details'=>$details
         );
     
-        $create = ProductDetails::updateOrCreate(
+        $create = productDetails::updateOrCreate(
             ['products_id'=>$id],
             $data
         );
@@ -169,7 +169,13 @@ class ProductController extends Controller
     } 
     public function showDetails(Request $request)  {
         $id = $request->id;
+        if(productDetails::where('products_id',$id)->first()){
         $details = productDetails::where('products_id',$id)->get();
+        }
+        else{
+            $details = "No Data";
+        }
+
         return view('details',compact('details'));
     }
 }

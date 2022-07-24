@@ -16,7 +16,7 @@
                                     <th width="5%">Remove</th>
                                 </tr>
                             </thead>
-                            @if (is_array($productDetails) || is_object($productDetails))
+                            @if (isset($products))
                                                         
                             <tbody id="tbody" style="text-align: center"> 
                                 {{-- @for($i=0;$i<count($productDetails[0]['details']);$i++)
@@ -68,33 +68,6 @@
     </div>
 @push('addrow-section')
 <script>
-//passing array objects to input in the form
-var data = @json($productDetails[0]);
-var rowIdx = 0;
-for(i=0;i<data['title'].length;i++){    
-    $('#tbody').append(`<tr id="R${++rowIdx}">
-                <td class="row-index text-left">
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title[]" placeholder="Title" value=${data['title'][i]}>
-                        @error('title')
-                        <span class="text-danger" role="alert">
-                            <p>{{ $message }}</p>
-                        </span>
-                        @enderror
-                </td>
-                <td class="row-index text-left">
-                    <textarea onkeyup="handleInput(event)" rows="10" cols="50" class="form-control @error('details') is-invalid @enderror" name="details[]" placeholder="details">${data['details'][i]}</textarea>
-                                @error('details')
-                                <span class="text-danger" role="alert">
-                                    <p>{{ $message }}</p>
-                                </span>
-                                @enderror        
-                </td>                        
-                <td class="text-left">
-                    <button class="btn btn-danger remove" 
-                        type="button">Remove</button>
-                </td>
-                </tr>`); 
-}
  // jQuery button click event to remove a row.
  $('#tbody').on('click', '.remove', function () {
   
@@ -188,6 +161,35 @@ const handleInput = (event) => {
  
             });
     });
+//passing array objects to input in the form
+var products = @json($products);
+console.log(products['product_details']);
+var data = products['product_details'];
+var rowIdx = 0;
+for(i=0;i<data['title'].length;i++){    
+    $('#tbody').append(`<tr id="R${++rowIdx}">
+                <td class="row-index text-left">
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title[]" placeholder="Title" value=${data['title'][i]}>
+                        @error('title')
+                        <span class="text-danger" role="alert">
+                            <p>{{ $message }}</p>
+                        </span>
+                        @enderror
+                </td>
+                <td class="row-index text-left">
+                    <textarea onkeyup="handleInput(event)" rows="10" cols="50" class="form-control @error('details') is-invalid @enderror" name="details[]" placeholder="details">${data['details'][i]}</textarea>
+                                @error('details')
+                                <span class="text-danger" role="alert">
+                                    <p>{{ $message }}</p>
+                                </span>
+                                @enderror        
+                </td>                        
+                <td class="text-left">
+                    <button class="btn btn-danger remove" 
+                        type="button">Remove</button>
+                </td>
+                </tr>`); 
+}    
 </script>      
 @endpush
 </x-app>

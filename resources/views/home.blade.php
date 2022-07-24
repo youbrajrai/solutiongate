@@ -22,9 +22,9 @@
     <section class="work-flow">
         <x-work />
     </section>
-    <section class="packages">
+    {{-- <section class="packages">
         <x-packages />
-    </section>    
+    </section>     --}}
     
     <section class="portfolio">
         <x-project />

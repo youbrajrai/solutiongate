@@ -86,7 +86,7 @@ class CategoriesController extends Controller
     public function update(CategoriesStoreRequest $request,Categories $categories)
     {
         $id = $request->id;
-        $categories = Categories::find($categories->id);
+        $categories = Categories::find($id);
         $data = array(
             'title'=> $request->title,
         );

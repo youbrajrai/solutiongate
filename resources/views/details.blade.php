@@ -2,7 +2,8 @@
     @section('header' , 'Details')
     <section class="single-page">
         <div class="container">
-            <div class="row">               
+            <div class="row">
+                @if($details!="No Data")       
                 @for($i=0;$i<count($details[0]['details']);$i++)
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="side-wrapper">
@@ -14,8 +15,16 @@
                         </div>
                     </div>
                 </div>
-                
-                @endfor 
+                @endfor
+                @else
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="side-wrapper">
+                        <div class="grid-item">   
+                                <h2 style="text-align: center">{{$details}}</h2>                                                              
+                        </div>
+                    </div>
+                </div>                
+                @endif
             </div>
         </div>
     </section>

@@ -26,7 +26,7 @@ class SubcategoriesStoreRequest extends FormRequest
         return [
 			'title' => ['required'],
             'category_id' => ['required'],
-			'image' => ['sometimes', 'mimes:jpeg,png,jpg,gif,svg|max:2048'],
+			'image' => ['required', 'mimes:jpeg,png,jpg,gif,svg|max:2048'],
         ];
     }
 }

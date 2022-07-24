@@ -17,8 +17,8 @@ class CreateProductDetailsTable extends Migration
             $table->id();
             $table->bigInteger('products_id')->unsigned();
             $table->foreign('products_id')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('title');
-            $table->text('details');
+            $table->string('title')->nullable();
+            $table->text('details')->nullable();
             $table->timestamps();
         });
     }
