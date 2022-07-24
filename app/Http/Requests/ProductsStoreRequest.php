@@ -28,7 +28,7 @@ class ProductsStoreRequest extends FormRequest
 			'content' => ['required'],
             'category' => ['required'],
             'subcategory' => ['required'],
-            'image' => ['required', 'mimes:jpeg,png,jpg,gif,svg|max:2048'],
+            'image' => ['sometimes', 'mimes:jpeg,png,jpg,gif,svg|max:2048'],
 			
         ];
     }

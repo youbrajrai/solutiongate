@@ -25,7 +25,7 @@ class CategoriesStoreRequest extends FormRequest
     {
 		return [
 			'title' => ['required'],
-			'image' => ['required', 'mimes:jpeg,png,jpg,gif,svg|max:2048'],
+			'image' => ['sometimes', 'mimes:jpeg,png,jpg,gif,svg|max:2048'],
 		];
     }
 }
